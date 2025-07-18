@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Steampunk Realm</title>
+  <style>
+    @keyframes fadeInZoom {
+      from { opacity: 0; transform: scale(0.9) translateY(-30px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes spinGear {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: linear-gradient(to bottom right, #3b2f2f, #1e1a1a);
+      color: #e5c07b;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeInZoom 2s ease forwards;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    nav button {
+      background: none;
+      border: 2px solid #5e4b3c;
+      color: #e5c07b;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+    nav button:hover,
+    nav button.active {
+      background: #5e4b3c;
+      transform: scale(1.1);
+      box-shadow: 0 0 12px #c79f4b;
+    }
+    .card {
+      background: #2e2626;
+      border: 1px solid #5e4b3c;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      animation: fadeInCard 1s ease-in-out;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #000;
+      transition: transform 0.4s ease,  
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #c79f4b;
+    }
+    .hidden { display: none; }
+    .gear {
+      position: absolute;
+      animation: spinGear 10s linear infinite;
+    }
+    .copy {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      opacity: 0.5;
+    }
+    .copy img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .copy.top-left { top: 20px; left: 20px; }
+    .copy.bottom-right { bottom: 20px; right: 20px; }
+    .typing-text {
+      position: relative;
+      overflow: hidden;
+      border-right: .15em solid #c79f4b;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+      width: 100%;
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #c79f4b; }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_a0a98e1c45.mp3" type="audio/mpeg">
+  </audio>
+  <div class="copy top-left">
+    <img src="https://i.imgur.com/Vs6U3hb.png" alt="Gear" />
+  </div>
+  <div class="copy bottom-right">
+    <img src="https://i.imgur.com/Vs6U3hb.png" alt="Gear" />
+  </div>
+
+  <h1 class="typing-text"><span class="gear">⚙️</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Steampunk Realm &nbsp;<span class="gear">⚙️</span></h1>
+  <nav id="top-nav">
+    <button onclick="showPage('home')" class="active">Home</button>
+    <button onclick="showPage('history')">History</button>
+    <button onclick="showPage('aesthetic')">Aesthetic</button>
+  </nav>
+
+  <div class="card">
+    <div id="home"><h3>Hello, everyone. Welcome to the world of steampunk. This is a site that covers the whole story of steampunk. If you're interested in steampunk, it would be a very interesting webpage. So, are you ready to fall in love with the genre of steampunk?</h3></div>
+    <div id="history" class="hidden"><h3>Steampunk is a literary genre derived from Cyberpunk, a subgenre of science fiction in the mid-1980s, and refers to an alternative or similar historical genre that attempted to reinterpret the past by introducing fantastic elements to science and technology in the Victorian and early 20th centuries when modern society was born and Edwardian Britain.</h3></div>
+    <div id="aesthetic" class="hidden"><h2>Background music in general</h2>
+    <h3>Unlike other SFs, elements other than the 19th century, which are the main background, such as rock music and electric swing, are also used, but the basic themes include classical music that gives a majestic atmosphere and classical feeling, such as music from the Victorian or Belle Époque era, and music from the early 20th century accordion, ragtime, jazz, and swing music that moderately lighten the atmosphere. It is also characterized by the inclusion of elements that make one feel the times, such as the ticking of a mechanical clock, the sound of bells that give the feeling of Big Ben, the sound of steam coming out of a conduit, the sound of winding a spring leaf, and the sound of metal hitting.</h3></div>
+    <div id="gallery" class="hidden">
+      <div class="gallery">
+        <img src="https://i.pinimg.com/736x/65/35/c8/6535c8d546fb109ef4ff2384ac7c04bc.jpg" width="250" height="350"alt="Steampunk City" />
+        <img src="https://i.pinimg.com/736x/5f/41/b0/5f41b07623650ca6e62de08cdde6f5e5.jpg" width="250" height="350" alt="Steampunk Airship" />
+        <img src="https://i.pinimg.com/736x/39/40/8d/39408dbc9ec09829aabaacfb54a6fd86.jpg" width="250" height="350"alt="Steampunk Goggles" />
+        <img src="https://i.pinimg.com/736x/fa/ba/66/faba66d973a701ce938652a0024f0545.jpg" width="250" height="350"alt="Steampunk Machine" />
+        <img src="https://i.pinimg.com/736x/17/d1/d0/17d1d01fe647838583cf28f78c298a5b.jpg" width="250" height="350"alt="Steampunk Explorer" />
+        <img src="https://i.pinimg.com/736x/01/60/78/016078d2240b26b55b928355263bfd4f.jpg" width="250" height="350"alt="Steampunk Robot" />
+      </div>
+    </div>
+    <div id="media" class="hidden"><h3>FULLMETAL ALCHEMIST,KABANERI OF THE IRON FORTRESS,Gulliver Boy in the Science Fiction World,Love,Death+Robot Episode-GoodHunting,Violet Evergarden,SteamBoy,Arcane: League of Legends,Attack on Titan</h3></div>
+    <div id="contact" class="hidden">
+      <p>Got a sharing your idea to me? Send a email:qpek1232012@gmail.com</p>
+      <button style="background-color: #5e4b3c; color: white; border-radius: 8px; padding: 10px 20px;">Send email</button>
+    </div>
+  </div>
+
+  <nav id="bottom-nav">
+    <button onclick="showPage('gallery')">Gallery</button>
+    <button onclick="showPage('media')">In Media</button>
+    <button onclick="showPage('contact')">Contact</button>
+  </nav>
+
+  <script>
+    function showPage(id) {
+      const pages = ["home", "history", "aesthetic", "gallery", "media", "contact"];
+      pages.forEach(page => {
+        document.getElementById(page).classList.add("hidden");
+      });
+      document.getElementById(id).classList.remove("hidden");
+
+      document.querySelectorAll("nav button").forEach(btn => btn.classList.remove("active"));
+      const navButtons = document.querySelectorAll(`button[onclick*='${id}']`);
+      navButtons.forEach(btn => btn.classList.add("active"));
+    }
+  </script>
+</body>
+</html>
+
+
